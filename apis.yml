@@ -1,23 +1,69 @@
 aid: artnguide
+
 name: Artnguide
-description: 'Artnguide is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+
+description: Artnguide (아트앤가이드) is a Korean platform that issues art‑investment contract securities, enabling fractional ownership of artworks.
+  It provides a digital marketplace where users can easily start investing in art pieces through a user‑friendly interface, offering transparency,
+  liquidity, and regulatory compliance for art‑based financial products.
+
+image: https://artnguide.s3.ap-northeast-2.amazonaws.com/etc/artng_1715940223611_bd839ae5810a1ad3.jpg
+
 url: https://raw.githubusercontent.com/api-evangelist/artnguide/refs/heads/main/apis.yml
+
 x-type: company
+
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
+
+x-tier: profiled
+x-tier-reason: enrichment pass 2026-09-26 (modular-v1; was harvest)
+
 specificationVersion: '0.20'
+
 created: '2026-09-26'
+
 modified: '2026-09-26'
+
 tags:
 - Company
-apis: []
+- Art
+- Investment
+- FinTech
+- Korea
+
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+
 common:
+- type: Hosts
+  url: hosts/artnguide-hosts.yml
+- type: Documentation
+  url: https://dev.artnguide.co.kr/
+- type: DomainSecurity
+  url: security/artnguide-domain-security.yml
 - type: Website
-  url: https://equityzen.com/company/artnguide
+  url: https://www.artnguide.co.kr
+
+apis:
+- name: Artnguide API
+  description: API for Artnguide platform
+  humanURL: https://dev.artnguide.co.kr/
+  baseURL: null
+  aid: artnguide:artnguide-api
+
+x-coverage:
+  state: unreadable
+  reason: js-rendered-docs
+  detail: Developer portal returns a JavaScript shell with no machine‑readable OpenAPI spec
+  evidence:
+  - url: https://dev.artnguide.co.kr/openapi.json
+    status: 200
+  checked: 2026-09-26
+x-enrichment:
+  date: '2026-09-26'
+  status: enriched
+  artifacts_added: 4
+  pass: modular-v1
+  engine: identity=local,contract=local,surfaces=local,docs=local
